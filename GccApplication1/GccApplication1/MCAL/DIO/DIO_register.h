@@ -5,7 +5,7 @@
  *  Author: fares
  */ 
 
-#include "C:\Users\AdminOS\Desktop\driver\GccApplication1\GccApplication1\LIB\STD_TYPES.h"
+#include "../../LIB/STD_TYPES.h"
 
 #ifndef DIO_REGISTER_H_
 #define DIO_REGISTER_H_

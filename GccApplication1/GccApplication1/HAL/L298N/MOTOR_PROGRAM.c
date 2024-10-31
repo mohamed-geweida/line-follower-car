@@ -7,6 +7,8 @@
 
 
 #include "MOTOR_INTERFACE.h"
+#include "../../MCAL/DIO/DIO_interface.h"
+#include "../../MCAL/DIO/DIO_register.h"
 
 void L298N_Init(void) {
 	DIO_u8_SetPinDirection(DIO_u8PORTD, IN1, DIO_u8Pin_Output);
