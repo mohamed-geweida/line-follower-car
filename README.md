@@ -1,10 +1,9 @@
-Line Follower (AVR ATmega32)
+# Line Follower Car (AVR ATmega32)
 
 [![Build](https://img.shields.io/badge/build-make-brightgreen?style=for-the-badge)](#build)
 [![Toolchain](https://img.shields.io/badge/toolchain-AVR--GCC-blue?style=for-the-badge)](#build)
 [![MCU](https://img.shields.io/badge/MCU-ATmega32-orange?style=for-the-badge)](#pinout)
 [![Language](https://img.shields.io/badge/language-C-00599C?style=for-the-badge)](#)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey?style=for-the-badge)](LICENSE)
 
 A simple line-following robot firmware built for AVR ATmega32 using Atmel Studio toolchain. It uses an L298N driver to control two DC motors and two IR sensors for line detection.
 
@@ -28,19 +27,44 @@ firmware/
 
 Build
 
-Build (portable)
+Portable build using the root Makefile.
 
-Prereqs: AVR GCC toolchain (`avr-gcc`, `avr-objcopy`, `avr-size`) in PATH.
+1. Prerequisites
+
+- Install AVR GCC toolchain and ensure these are in PATH: `avr-gcc`, `avr-objcopy`, `avr-size`.
+  - Windows: Atmel/Microchip AVR8 GNU Toolchain or WinAVR
+  - Linux/macOS: `avr-gcc` from your package manager (e.g., `brew tap osx-cross/avr && brew install avr-gcc`)
+
+2. Build
 
 ```bash
+# from repo root
 make
 ```
 
-Outputs are in `build/`: `line-follower.elf`, `line-follower.hex`.
+Artifacts are generated in `build/`: `line-follower.elf`, `line-follower.hex`.
+
+3. Clean
+
+```bash
+make clean
+```
+
+4. Configure (optional)
+
+You can override defaults at build time:
+
+```bash
+# Override CPU clock (default 8 MHz)
+make F_CPU=16000000UL
+
+# Override target MCU (default atmega32)
+make MCU=atmega32
+```
 
 Flashing
 
-Use avrdude with your programmer. Example (adjust programmer and port):
+Use `avrdude` with your programmer. Example (adjust programmer and port):
 
 ```bash
 avrdude -c usbasp -p m32 -U flash:w:build/line-follower.hex:i
