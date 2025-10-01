@@ -1,0 +1,27 @@
+# Root ignores
+build/
+
+# IDE
+.vs/
+*.atsuo
+*.atsln.user
+*.cproj.user
+*.componentinfo.xml.user
+
+# OS
+Thumbs.db
+Desktop.ini
+*.log
+
+# Atmel Studio project outputs (keep project folder clean)
+GccApplication1/Debug/
+GccApplication1/Release/
+GccApplication1/*.elf
+GccApplication1/*.hex
+GccApplication1/*.eep
+GccApplication1/*.lss
+GccApplication1/*.map
+GccApplication1/*.srec
+GccApplication1/**/*.o
+GccApplication1/**/*.d
+
