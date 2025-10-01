@@ -1,5 +1,9 @@
-#include "HAL/L298N/MOTOR_INTERFACE.h"
+#include <avr/io.h>
+#ifndef F_CPU
+#define F_CPU 8000000UL
+#endif
 #include <util/delay.h>
+#include "HAL/L298N/MOTOR_INTERFACE.h"
 
 int main(void) {
 	L298N_Init();
